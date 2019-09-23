@@ -15,15 +15,36 @@ int main()
 
 	/*  ==== START OF YOUR CODE ==== */
 
+	/*mean*/
+	float length = sizeof(data)/sizeof(data[0]);
+	float sum = 0;
+	int i;
+	for (i = 0; i < length ; i++)
+	{
+		sum = sum + data[i];
+	}
 
+	mean = sum / length;
+
+
+	/*std_dev*/
+	float a = 0;
+	/* a = sum of result of each number subtract the mean and square*/
+	int ii = 0;
+	for (ii = 0; ii < length; ii++)
+	{
+		a = a + pow((data[ii]-mean),2);
+	} 
+
+	std_dev = sqrt(a/(length-1));
 
 	/*  ==== END OF YOUR CODE ==== */
 
 
 	/* These lines will output the results to console */
 
-	printf("\nMean = %f", mean);
-	printf("\nStandard deviation = %f", std_dev);
+	printf("\nMean = %.3f", mean);
+	printf("\nStandard deviation = %.3f", std_dev);
 
 	
 	return 0;  // Functions which return a value MUST contain at least one return statement

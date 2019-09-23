@@ -39,8 +39,8 @@ int main()
 
 	/* These lines will output the results to console */
 
-	printf("\nMean = %f", mean);
-	printf("\nStandard deviation = %f", std_dev);
+	printf("\nMean = %.3f", mean);
+	printf("\nStandard deviation = %.3f", std_dev);
 
 	
 	return 0;  // Functions which return a value MUST contain at least one return statement

@@ -2,25 +2,9 @@
 #include <stdlib.h>
 #include<math.h>
 
-
 void main(int argc,char** argv)
 {
-	float rad =0;
-	float vsin =0;
-	int i = 0;
-	FILE* output_file;
-	output_file = fopen("data.txt","w");
-	for (i = 0; i < 360; i++)
-	{
-
-		rad = i*M_PI/180;
-		vsin = sin(rad);
-	    fprintf(output_file, "%f %f\n",rad,vsin);
-	    //printf("%f,%f\n",rad,vsin);
-	}
-
-	fclose(output_file);
-	//creates data.txt
+	FILE* inputfile;
 
 
 	float a;
@@ -28,7 +12,7 @@ void main(int argc,char** argv)
 	int ii = 0;
 	FILE* input_file;
 	int counter = 0;
-	input_file = fopen("data.txt","r");
+	input_file = fopen(argv[1],"r");
 
 	while(fscanf(input_file,"%f %f\n",&a,&b) != EOF)
 	{
@@ -50,7 +34,7 @@ void main(int argc,char** argv)
 	/*mean*/
 	float length = sizeof(y)/sizeof(y[0]);
 	float sum = 0;
-	i = 0;
+	int i = 0;
 	for (i = 0; i < length ; i++)
 	{
 		sum = sum + y[i];
@@ -72,15 +56,10 @@ void main(int argc,char** argv)
 
 
 	printf("\nMean = %f", mean);
-	printf("\nStandard deviation = %f", std_dev);
-
+	printf("\nStandard deviation = %f", std_dev);	
 	
+
+	inputfile = fopen(argv[1],"r");
+
+
 }
-
-
-
-
-
-
-
-
