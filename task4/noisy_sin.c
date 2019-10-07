@@ -34,8 +34,3 @@ void noisy_sin(int a)
 	fclose(output_file);
 	
 }
-
-void main()
-{
-	noisy_sin(1024);
-}
