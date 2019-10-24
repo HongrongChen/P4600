@@ -1,0 +1,1 @@
+float moving_average(int argc, char** argv);

@@ -3,7 +3,6 @@
 #include <time.h>
 #include <stdlib.h>
 
-
 void noisy_sin(int a) 
 {
 	FILE* output_file;
@@ -33,5 +32,12 @@ void noisy_sin(int a)
 
 
 	fclose(output_file);
+	
+}
+
+
+void main()
+{
+	noisy_sin(500);
 	
 }

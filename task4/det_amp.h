@@ -1,0 +1,1 @@
+float det_amp(int argc, char** argv);

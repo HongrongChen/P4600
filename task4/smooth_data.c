@@ -2,15 +2,19 @@
 #include <stdlib.h>
 #include<math.h>
 
-#define M = 0.5
 
 float moving_average(int argc, char** argv)
 {
 	FILE* inputfile;
 	FILE* input_file;
 	input_file = fopen(argv[1],"r");
+	float a;
+	float b;
+	int counter;
+
 
 	int i = 0;
+	float M = 0.5;
 	while(fscanf(input_file,"%f %f\n",&a,&b) != EOF)
 	{
 		counter++;
@@ -19,7 +23,7 @@ float moving_average(int argc, char** argv)
 	float x[counter];
 	float amp[counter];
 	i = 0;
-	for(i = 0; i < counter < i++)
+	for(i = 0; i < counter ; i++)
 	{
 		fscanf(input_file,"%f %f\n", &x[i],&amp[i]);
 	}

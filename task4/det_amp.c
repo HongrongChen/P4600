@@ -7,9 +7,12 @@ float det_amp(int argc, char** argv)
 	FILE* inputfile;
 	FILE* input_file;
 	input_file = fopen(argv[1],"r");
+	float a;
+	int counter;
+
 
 	int i = 0;
-	while(fscanf(input_file,"%f %f\n",&a,&b) != EOF)
+	while(fscanf(input_file,"%f\n",&a) != EOF)
 	{
 		counter++;
 	}
@@ -18,12 +21,12 @@ float det_amp(int argc, char** argv)
 	float amp[counter];
 	float max_amp = 0;
 	i = 0;
-	for(i = 0; i < counter < i++)
+	for(i = 0; i < counter ; i++)
 	{
 		fscanf(input_file,"%f %f\n", &x[i],&amp[i]);
-		if(amp[i]>amp[i-1])
+		if( amp[i] > amp[i-1] )
 		{
-			max_amp = amp[i]
+			max_amp = amp[i];
 		}
 	}
 	
@@ -32,9 +35,9 @@ float det_amp(int argc, char** argv)
 	printf("\nMaxim	um Amplitude is %.3f",max_amp);
 	
 
+}
 
-
-
-
-
+void main()
+{
+	det_amp(noisy_sin);
 }
