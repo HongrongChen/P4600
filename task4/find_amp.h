@@ -1,0 +1,1 @@
+float find_amp(float* data, int len,float* max_amp);

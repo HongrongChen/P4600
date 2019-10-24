@@ -64,7 +64,7 @@ void main(int argc, char** argv)
 					for(int i = 0; i<2500; i++)
 					{
 						y = dataBuffer[i];
-						volts[i] = fscale*8.0/256.0*y;
+						volts[i] = fscale*10.0/256.0*y;
 						printf("\nRaw = %d,  Read = %f",dataBuffer[i],y);
 						fprintf(output_file,"%f\n",volts[i]);
 					}
@@ -94,42 +94,6 @@ void main(int argc, char** argv)
 	fclose(output_file);
 
 
-
-
-	float a;
-
-	while(fscanf(volts,"%f\n",&a) != EOF)
-	{
-		counter++;
-	}
-	rewind(volts);
-	float max_amp = 0;
-	i = 0;
-	for(i = 0; i < counter < i++)
-	{
-		fscanf(volts,"%f\n",&amp[i]);
-		if(amp[i]>amp[i-1])
-		{
-			max_amp = amp[i]
-		}
-	}
-	printf("\nMaxim	um Amplitude is %.3f",max_amp);
-
-	float M = 0.5;
-	i = 0;
-	int j = 0;
-	for(i=0;i<counter;i++)
-	{
-		j = 0;
-		for(j=0;j<5;j++)
-		{
-			if(i+j<counter)
-			{
-				amp[i] += M*(amp[i+j]);
-			}
-			if(i+j>counter)
-			{
-				amp[i] = 0;
 			}
 		}
 	

@@ -1,1 +1,1 @@
-void noisy_sin();
+void noisy_sin(int a);

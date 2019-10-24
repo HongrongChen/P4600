@@ -4,10 +4,10 @@
 #include <stdlib.h>
 
 
-void noisy_sin(int a) 
+float noisy_sin(int a) 
 {
 	FILE* output_file;
-	output_file = fopen("noisy_sin.txt","w");
+	output_file = fopen("noisy_data.txt","w");
 	srand(time(NULL));
 	int i = 0;
 	float sin_wave[a];
@@ -28,10 +28,9 @@ void noisy_sin(int a)
 		noise = (float)(r1-r2)/10;
 		noisy_sin[i] = sin_wave[i] + noise;
 		fprintf(output_file,"%.3f\n",noisy_sin[i]);
-		printf("%f %f\n",noisy_sin[i],noise);
+		/*printf("%f %f\n",noisy_sin[i],noise);*/
 	}
-
-
 	fclose(output_file);
-	
+	return 0;
 }
+
