@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <math.h>	
 #include <visa.h>
+#include "find_amp.h"
+#include "moving_average.h"
 
 void main(int argc, char** argv)
 {
@@ -31,7 +33,7 @@ void main(int argc, char** argv)
 		status = viFindRsrc(defaultRM,"USB[0-9]::?*INSTR",	&resourceList,&num_inst,description);
 		if(status == VI_SUCCESS)
 		{
-			status = viOpen(defaultRM,description,	VI_NULL,VI_NULL,&scopeHandle);
+			status = viOpen(defaultRM,description,VI_NULL,VI_NULL,&scopeHandle);
 
 			if(status == VI_SUCCESS)
 			{
@@ -92,6 +94,14 @@ void main(int argc, char** argv)
 		printf("\nFailed to open defaultRM");
 	}
 	fclose(output_file);
+
+	float max_amp = find_amp(volts,2500);
+	printf("A_max = %.3f",max_amp);
+	moving_average(volts,2500,1,float smooth_data[200]);
+	printf("%f\n",smooth_data);
+
+	
+
 
 
 			}

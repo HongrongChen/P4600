@@ -1,0 +1,1 @@
+float moving_average(float* data,int length,int window,float* smoothdata);
