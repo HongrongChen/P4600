@@ -32,4 +32,5 @@ float noisy_sin(int a)
 	}
 	fclose(output_file);
 	return 0;
+}
 

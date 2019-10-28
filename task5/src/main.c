@@ -97,16 +97,10 @@ void main(int argc, char** argv)
 
 	float max_amp = find_amp(volts,2500);
 	printf("A_max = %.3f",max_amp);
-	moving_average(volts,2500,1,float smooth_data[200]);
+	float smooth_data[200];
+	moving_average(volts,2500,1,smooth_data);
 	printf("%f\n",smooth_data);
-
 	
-
-
-
-			}
-		}
 	
-	}
 	
 }

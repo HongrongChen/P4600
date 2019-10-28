@@ -2,8 +2,16 @@
 #include <stdlib.h>
 #include <math.h>
 #include <visa.h>
+#include <string.h>
 
 
+ViStatus set_F_A(ViSession FGhandle,float set_point,float Vpp)
+{
+	char command[50];
+	ViUInt32 resultCount;
+	sprintf(command,":SOUR1:APPL:SIN %f,%f,0,0\n", set_point,Vpp);
+	viWrite(FGhandle,command,strlen(command),&resultCount);
+}
 
 
 int main()
@@ -18,7 +26,8 @@ int main()
 	ViChar description[VI_FIND_BUFLEN];
 	char dataBuffer[2500];
 
-	float frequency = 0;
+	float frequency=500.0;
+	float Vpp=2.5;
 
 	status = viOpenDefaultRM(&defaultRM);
 	if(status == VI_SUCCESS)
@@ -26,15 +35,15 @@ int main()
 		status = viFindRsrc(defaultRM,"USB[0-9]::0x1AB1?*INSTR",&resourceList,&num_inst,description);
 		if(status == VI_SUCCESS)
 		{
-			status = open(defaultRM,description,VI_NULL,VI_NULL,&FGHandle);
+			status = viOpen(defaultRM,description,VI_NULL,VI_NULL,&FGHandle);
 			if(status == VI_SUCCESS)
 			{
 				printf("\nOpened %s\n",description);
 				viWrite(FGHandle,"*IDN\n",6,&resultCount);
 				if(status == VI_SUCCESS)
 				{
-					viWrite(FGHandle,":SOUR1:APPL:SIN frequency,5,0,0\n",32,&resultCount);
-					viWrite(FGHandle,":OUTP1 ON\n",9,&resultCount);
+					set_F_A(FGHandle,frequency,Vpp);
+					viWrite(FGHandle,":OUTP1 ON\n",10,&resultCount);
 				}
 				else
 				{
