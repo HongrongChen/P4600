@@ -9,7 +9,7 @@ ViStatus set_voltage(ViSession handle, float volts)
 {
 	char command = [36]
 	sprintf(command,"CH1:SCALE %E\n", volts);
-	(handle,command,strlen(command),&resultCount)
+	viWrite(handle,command,strlen(command),&resultCount);
 }
 
 
@@ -21,7 +21,6 @@ Vistatus get_curve(ViSession handle, char *databuffer, int npoints)
 	status = viRead(handle,databuffer,npoints,&resultCount);
 	return status;
 }
-
 
 
 ViSession scopeHandle;
